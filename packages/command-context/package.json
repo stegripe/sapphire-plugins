@@ -1,0 +1,62 @@
+{
+    "name": "@stegripe/command-context",
+    "version": "1.0.0",
+    "description": "Handle Message and Interaction Command in one place.",
+    "homepage": "https://github.com/stegripe/template#readme",
+    "bugs": {
+        "url": "https://github.com/stegripe/template/issues"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/stegripe/template.git"
+    },
+    "license": "AGPL-3.0",
+    "author": "Stegripe Development <support@stegripe.org>",
+    "main": "dist/index.js",
+    "module": "dist/index.mjs",
+    "types": "dist/index.d.ts",
+    "exports": {
+        ".": {
+            "import": {
+                "types": "./dist/index.d.mts",
+                "default": "./dist/index.mjs"
+            },
+            "require": {
+                "types": "./dist/index.d.cts",
+                "default": "./dist/index.cjs"
+            }
+        }
+    },
+    "files": [
+        "dist",
+        "package.json"
+    ],
+    "scripts": {
+        "build": "rimraf dist && pnpm typecheck && tsup --config ../../tsup.config.json",
+        "lint": "eslint src --cache --cache-file .eslintcache",
+        "lint:fix": "eslint src --cache --cache-file .eslintcache --fix",
+        "pretty": "prettier --check src/**/*.ts",
+        "pretty:write": "prettier --write src/**/*.ts",
+        "typecheck": "tsc --noEmit"
+    },
+    "dependencies": {
+        "@sapphire/framework": "^5.2.1",
+        "@sapphire/utilities": "^3.17.0",
+        "discord.js": "^14.15.3",
+        "tslib": "^2.6.3"
+    },
+    "devDependencies": {
+        "eslint": "^9.7.0",
+        "prettier": "^3.2.5",
+        "rimraf": "^6.0.1",
+        "tsup": "^8.2.2",
+        "typescript": "^5.4.5"
+    },
+    "engines": {
+        "node": ">=20.9",
+        "npm": ">=10"
+    },
+    "publishConfig": {
+        "access": "public"
+    }
+}

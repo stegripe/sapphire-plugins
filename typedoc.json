@@ -1,0 +1,15 @@
+{
+    "$schema": "https://typedoc.org/schema.json",
+    "name": "Stegripe Monorepo Packages",
+    "emit": "docs",
+    "readme": "./README.md",
+    "hideGenerator": true,
+    "cleanOutputDir": true,
+    "excludeExternals": true,
+    "entryPoints": ["packages/*"],
+    "entryPointStrategy": "packages",
+    "packageOptions": {
+        "entryPoints": ["src/index.ts"]
+    },
+    "plugin": ["typedoc-plugin-djs-links", "typedoc-plugin-mdn-links", "typedoc-material-theme"]
+}

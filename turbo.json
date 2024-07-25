@@ -1,0 +1,24 @@
+{
+    "$schema": "https://turbo.build/schema.json",
+    "tasks": {
+        "build": {
+            "dependsOn": ["^build"],
+            "outputs": ["dist/**"]
+        },
+        "lint": {
+            "outputs": []
+        },
+        "lint:fix": {
+            "outputs": []
+        },
+        "pretty": {
+            "outputs": []
+        },
+        "pretty:write": {
+            "outputs": []
+        },
+        "typecheck": {
+            "outputs": []
+        }
+    }
+}

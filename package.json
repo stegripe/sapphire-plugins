@@ -1,36 +1,48 @@
 {
-    "name": "template",
-    "version": "1.0.0",
+    "name": "@stegripe/packages",
+    "private": true,
     "description": "A template to generate well-configured project base for Stegripe.",
-    "license": "AGPL-3.0",
-    "author": "Stegripe Development <support@stegripe.org>",
+    "homepage": "https://github.com/stegripe/template#readme",
+    "bugs": {
+        "url": "https://github.com/stegripe/template/issues"
+    },
     "repository": {
         "type": "git",
         "url": "git+https://github.com/stegripe/template.git"
     },
-    "bugs": {
-        "url": "https://github.com/stegripe/template/issues"
-    },
-    "homepage": "https://github.com/stegripe/template#readme",
-    "main": "dist/index.js",
-    "type": "module",
+    "license": "AGPL-3.0",
+    "author": "Stegripe Development <support@stegripe.org>",
+    "workspaces": [
+        "packages/*"
+    ],
     "scripts": {
-        "build": "npm run lint && npm run compile",
-        "compile": "tsc --build tsconfig.json",
-        "lint": "eslint . --ignore-pattern .gitignore",
-        "lint:fix": "npm run lint --fix",
-        "start": "node --es-module-specifier-resolution=node .",
-        "start:dev": "rimraf ./dist && npm run compile && npm start"
-    },
-    "engines": {
-        "node": ">=16.6.0",
-        "npm": ">=7.0.0"
+        "build": "turbo build",
+        "build:docs": "typedoc",
+        "clean": "rimraf -g \"packages/**/dist\"",
+        "lint": "turbo lint",
+        "lint:fix": "turbo lint:fix",
+        "pretty": "turbo pretty",
+        "pretty:write": "turbo pretty:write",
+        "typecheck": "turbo typecheck",
+        "release": "pnpm build && changeset version && changeset publish"
     },
     "devDependencies": {
+        "@changesets/cli": "^2.27.7",
+        "@sapphire/ts-config": "^5.0.1",
         "@stegripe/eslint-config": "^1.0.1",
         "@types/node": "^20.14.12",
-        "eslint": "^9.7.0",
+        "prettier": "^3.2.5",
         "rimraf": "^6.0.1",
-        "typescript": "^5.5.4"
+        "turbo": "^2.0.7",
+        "typedoc": "^0.26.5",
+        "typedoc-material-theme": "^1.1.0",
+        "typedoc-plugin-djs-links": "^2.2.1",
+        "typedoc-plugin-mdn-links": "^3.2.5",
+        "typescript": "^5.4.5"
+    },
+    "packageManager": "pnpm@9.5.0",
+    "engines": {
+        "node": ">=20.9",
+        "npm": ">=10"
     }
 }

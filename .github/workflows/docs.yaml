@@ -1,0 +1,39 @@
+name: Generate Documentation
+
+on:
+push:
+    branches:
+        - main
+
+jobs:
+generate:
+    runs-on: ubuntu-latest
+    steps:
+        - name: Checkout repository
+          uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
+          with:
+              fetch-depth: 2
+
+        - name: Setup pnpm
+          uses: pnpm/action-setup@fe02b34f77f8bc703788d5817da081398fad5dd2 # v4.0.0
+
+        - name: Setup Node.js
+          uses: actions/setup-node@1e60f620b9541d16bece96c5465dc8ee9832be0b # v4.0.3
+          with:
+              node-version-file: .node-version
+              check-latest: true
+              cache: "pnpm"
+
+        - name: Install dependencies
+          run: pnpm install --frozen-lockfile
+
+        - name: Generate Docs
+          run: pnpm build:docs
+
+        - name: Deploy
+          uses: peaceiris/actions-gh-pages@4f9cc6602d3f66b9c108549d475ec49e8ef4d45e # v4
+          with:
+              github_token: ${{ secrets.GITHUB_TOKEN }}
+              publish_dir: ./docs
+              user_name: "github-actions[bot]"
+              user_email: "github-actions[bot]@users.noreply.github.com"
