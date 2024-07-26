@@ -27,16 +27,18 @@ export abstract class ContextCommand extends Command {
         super(context, options);
         const registry = this.applicationCommandRegistry;
 
-        if (this.options.chatInput) {
-            const chatInput = cast<ChatInputApplicationCommandData>(this.options.chatInput());
+        if (this.options.chatInputCommand) {
+            const chatInput = cast<ChatInputApplicationCommandData>(
+                this.options.chatInputCommand()
+            );
             registry.registerChatInputCommand(chatInput, {
                 behaviorWhenNotIdentical: RegisterBehavior.Overwrite
             });
         }
 
-        if (this.options.contextMenu) {
+        if (this.options.contextMenuCommand) {
             const contextMenu = cast<MessageApplicationCommandData | UserApplicationCommandData>(
-                this.options.contextMenu()
+                this.options.contextMenuCommand()
             );
             registry.registerContextMenuCommand(contextMenu, {
                 behaviorWhenNotIdentical: RegisterBehavior.Overwrite
@@ -67,7 +69,7 @@ export abstract class ContextCommand extends Command {
 
 declare module "@sapphire/framework" {
     interface CommandOptions {
-        chatInput?(): SlashCommandBuilder;
-        contextMenu?(): ContextMenuCommandBuilder;
+        chatInputCommand?(): SlashCommandBuilder;
+        contextMenuCommand?(): ContextMenuCommandBuilder;
     }
 }
