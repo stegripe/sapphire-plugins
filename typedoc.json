@@ -6,6 +6,7 @@
     "hideGenerator": true,
     "cleanOutputDir": true,
     "excludeExternals": true,
+    "cname": "docs.stegripe.org",
     "entryPoints": ["packages/*"],
     "entryPointStrategy": "packages",
     "packageOptions": {
