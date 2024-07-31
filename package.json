@@ -1,5 +1,5 @@
 {
-    "name": "@stegripe/packages",
+    "name": "@stegripe/sapphire-plugins",
     "private": true,
     "description": "A template to generate well-configured project base for Stegripe.",
     "homepage": "https://github.com/stegripe/template#readme",

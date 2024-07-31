@@ -6,7 +6,7 @@
 
 **Plugin for [**`@sapphire/framework`**](https://github.com/sapphire/framework) used to handle logging with Pino.**
 
-[![GitHub](https://img.shields.io/github/license/stegripe/packages)](https://github.com/stegripe/sapphire-plugins/blob/main/LICENSE.md)
+[![GitHub](https://img.shields.io/github/license/stegripe/sapphire-plugins)](https://github.com/stegripe/sapphire-plugins/blob/main/LICENSE.md)
 
 </div>
 
