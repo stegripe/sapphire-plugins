@@ -17,14 +17,9 @@
     "types": "dist/index.d.ts",
     "exports": {
         ".": {
-            "import": {
-                "types": "./dist/index.d.mts",
-                "default": "./dist/index.mjs"
-            },
-            "require": {
-                "types": "./dist/index.d.cts",
-                "default": "./dist/index.cjs"
-            }
+            "types": "./dist/index.d.ts",
+            "import": "./dist/index.mjs",
+            "require": "./dist/index.js"
         }
     },
     "files": [
@@ -32,7 +27,7 @@
         "package.json"
     ],
     "scripts": {
-        "build": "rimraf dist && pnpm typecheck && tsup --config ../../tsup.config.json",
+        "build": "pnpm typecheck && tsup --config ../../tsup.config.json",
         "lint": "eslint src --cache --cache-file .eslintcache",
         "lint:fix": "eslint src --cache --cache-file .eslintcache --fix",
         "pretty": "prettier --check src/**/*.ts",
@@ -48,7 +43,6 @@
     "devDependencies": {
         "eslint": "^9.7.0",
         "prettier": "^3.2.5",
-        "rimraf": "^6.0.1",
         "tsup": "^8.2.2",
         "typescript": "^5.4.5"
     },
