@@ -34,9 +34,18 @@ You can use the following command to install this package, or replace `pnpm inst
 pnpm install @stegripe/command-context
 ```
 
-## Usage
+## Typescript Declaration
 
-### Without Decorators
+```ts
+declare module "@sapphire/framework" {
+    interface CommandOptions {
+        chatInputCommand?(options: Command.Options): SlashCommandBuilder;
+        contextMenuCommand?(options: Command.Options): ContextMenuCommandBuilder;
+    }
+}
+```
+
+## Usage
 
 ```ts
 import { Command } from "@sapphire/framework";
@@ -51,12 +60,12 @@ export class MyCommand extends ContextCommand {
             description: "This is my command!",
             chatInputCommand() {
                 return new SlashCommandBuilder()
-                    .setName(this.name!)
-                    .setDescription(this.description!);
+                    .setName(this.name)
+                    .setDescription(this.description);
             },
             contextMenuCommand() {
                 return new ContextMenuCommandBuilder()
-                    .setName(this.name!)
+                    .setName(this.name)
                     .setType(ApplicationCommandType.Message);
             }
         });
@@ -70,7 +79,7 @@ export class MyCommand extends ContextCommand {
 }
 ```
 
-### With Decorators
+## With Decorators
 
 ```ts
 import { ApplyOptions } from "@sapphire/decorators";
@@ -81,12 +90,12 @@ import { SlashCommandBuilder } from "discord.js";
 @ApplyOptions<Command.Options>({
     name: "my-command",
     description: "This is my command!",
-    chatInputCommand() {
-        return new SlashCommandBuilder().setName(this.name!).setDescription(this.description!);
+    chatInputCommand(opts) {
+        return new SlashCommandBuilder().setName(opts.name).setDescription(opts.description);
     },
-    contextMenuCommand() {
+    contextMenuCommand(opts) {
         return new ContextMenuCommandBuilder()
-            .setName(this.name!)
+            .setName(opts.name)
             .setType(ApplicationCommandType.Message);
     }
 })

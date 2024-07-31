@@ -12,4 +12,4 @@
 
 ## Packages
 
--   [**`@stegripe/command-context`**](/packages/command-context/) - Plugin for [**`@sapphire/framework`**](https://github.com/sapphire/framework) used to handle Message & Interaction Command in a single context.
+-   [**`@stegripe/command-context`**](https://github.com/stegripe/packages/tree/main/packages/command-context) - Plugin for [**`@sapphire/framework`**](https://github.com/sapphire/framework) used to handle Message & Interaction Command in a single context.
