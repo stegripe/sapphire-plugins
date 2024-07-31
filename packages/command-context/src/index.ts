@@ -1,10 +1,8 @@
-import "tslib";
-
-export * from "./ContextCommand.js";
-export * from "./ContextPrecondition.js";
-export * from "./structures/ChatInputCommandInteractionContext.js";
-export * from "./structures/CommandContext.js";
-export * from "./structures/CommandInteractionContext.js";
-export * from "./structures/MessageContext.js";
-export * from "./structures/MessageContextMenuCommandInteractionContext.js";
-export * from "./structures/UserContextMenuCommandInteractionContext.js";
+export * from "./lib/ContextCommand.js";
+export * from "./lib/ContextPrecondition.js";
+export * from "./lib/structures/ChatInputCommandInteractionContext.js";
+export * from "./lib/structures/CommandContext.js";
+export * from "./lib/structures/CommandInteractionContext.js";
+export * from "./lib/structures/MessageContext.js";
+export * from "./lib/structures/MessageContextMenuCommandInteractionContext.js";
+export * from "./lib/structures/UserContextMenuCommandInteractionContext.js";

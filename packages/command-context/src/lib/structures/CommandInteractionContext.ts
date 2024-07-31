@@ -1,8 +1,7 @@
+/* eslint-disable typescript/explicit-function-return-type, typescript/explicit-module-boundary-types */
 import type {
     AnySelectMenuInteraction,
     APIModalInteractionResponseCallbackData,
-    ApplicationCommand,
-    ApplicationCommandType,
     AutocompleteInteraction,
     AwaitModalSubmitOptions,
     BooleanCache,
@@ -10,19 +9,13 @@ import type {
     CacheType,
     ChannelSelectMenuInteraction,
     ChatInputCommandInteraction,
-    Collection,
     CommandInteraction,
-    CommandInteractionOptionResolver,
     ContextMenuCommandInteraction,
-    Entitlement,
-    GuildResolvable,
     InteractionDeferReplyOptions,
     InteractionEditReplyOptions,
     InteractionReplyOptions,
     InteractionResponse,
-    InteractionWebhook,
     JSONEncodable,
-    Locale,
     MentionableSelectMenuInteraction,
     Message,
     MessageComponentInteraction,
@@ -31,12 +24,10 @@ import type {
     MessageResolvable,
     ModalComponentData,
     ModalSubmitInteraction,
-    PermissionsBitField,
     RepliableInteraction,
     RoleSelectMenuInteraction,
     Snowflake,
     StringSelectMenuInteraction,
-    User,
     UserContextMenuCommandInteraction,
     UserSelectMenuInteraction
 } from "discord.js";
@@ -47,94 +38,75 @@ export class CommandInteractionContext extends CommandContext {
         super(context);
     }
 
-    public get deferred(): boolean {
+    public get deferred() {
         return this.context.deferred;
     }
 
-    public get command():
-        | ApplicationCommand
-        | ApplicationCommand<{ guild: GuildResolvable }>
-        | null {
+    public get command() {
         return this.context.command;
     }
 
-    public get options(): Omit<
-        CommandInteractionOptionResolver,
-        | "getAttachment"
-        | "getBoolean"
-        | "getChannel"
-        | "getFocused"
-        | "getInteger"
-        | "getMember"
-        | "getMentionable"
-        | "getMessage"
-        | "getNumber"
-        | "getRole"
-        | "getString"
-        | "getSubcommand"
-        | "getSubcommandGroup"
-        | "getUser"
-    > {
+    public get options() {
         return this.context.options;
     }
 
-    public get commandId(): string {
+    public get commandId() {
         return this.context.commandId;
     }
 
-    public get commandName(): string {
+    public get commandName() {
         return this.context.commandName;
     }
 
-    public get commandType(): ApplicationCommandType {
+    public get commandType() {
         return this.context.commandType;
     }
 
-    public get commandGuildId(): string | null {
+    public get commandGuildId() {
         return this.context.commandGuildId;
     }
 
-    public get ephemeral(): boolean | null {
+    public get ephemeral() {
         return this.context.ephemeral;
     }
 
-    public get replied(): boolean {
+    public get replied() {
         return this.context.replied;
     }
 
-    public get webhook(): InteractionWebhook {
+    public get webhook() {
         return this.context.webhook;
     }
 
-    public get token(): string {
+    public get token() {
         return this.context.token;
     }
 
-    public get user(): User {
+    public get user() {
         return this.context.user;
     }
 
-    public get version(): number {
+    public get version() {
         return this.context.version;
     }
 
-    public get appPermissions(): Readonly<PermissionsBitField> | null {
+    public get appPermissions() {
         return this.context.appPermissions;
     }
 
-    public get memberPermissions(): Readonly<PermissionsBitField> | null {
+    public get memberPermissions() {
         return this.context.memberPermissions;
     }
 
-    public get locale(): Locale {
+    public get locale() {
         return this.context.locale;
     }
 
-    public get guildLocale(): Locale | null {
+    public get guildLocale() {
         return this.context.guildLocale;
     }
 
-    public get entitlements(): Collection<string, Entitlement> {
+    public get entitlements() {
         return this.context.entitlements;
     }
 
@@ -160,7 +132,7 @@ export class CommandInteractionContext extends CommandContext {
         return this.context.deferReply(options);
     }
 
-    public async deleteReply(message?: MessageResolvable): Promise<void> {
+    public async deleteReply(message?: MessageResolvable) {
         return this.context.deleteReply(message);
     }
 
