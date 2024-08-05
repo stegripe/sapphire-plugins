@@ -6,12 +6,12 @@
     "author": "Stegripe Development <support@stegripe.org>",
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/stegripe/template.git"
+        "url": "git+https://github.com/stegripe/sapphire-plugins.git"
     },
     "bugs": {
-        "url": "https://github.com/stegripe/template/issues"
+        "url": "https://github.com/stegripe/sapphire-plugins/issues"
     },
-    "homepage": "https://github.com/stegripe/template#readme",
+    "homepage": "https://docs.stegripe.org/modules/_stegripe_command_context.html",
     "main": "dist/index.js",
     "module": "dist/index.mjs",
     "types": "dist/index.d.ts",

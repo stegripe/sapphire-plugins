@@ -11,7 +11,7 @@
     "bugs": {
         "url": "https://github.com/stegripe/sapphire-plugins/issues"
     },
-    "homepage": "https://github.com/stegripe/sapphire-plugins#readme",
+    "homepage": "https://docs.stegripe.org/modules/_stegripe_pino_logger.html",
     "main": "dist/index.js",
     "module": "dist/index.mjs",
     "types": "dist/index.d.ts",
