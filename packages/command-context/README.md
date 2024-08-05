@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://cdn.stegripe.org/images/icon.png" alt="Stegripe Logo" width="256" height="256" />
+<img src="https://cdn.stegripe.org/images/logo.png" alt="Stegripe Logo" width="135">
 
 # @stegripe/command-context
 
@@ -11,17 +11,14 @@
 </div>
 
 ## Description
-
 This plugin is used to handle Message & Interaction Command in a single context. It is used to simplify the process of creating commands that can be used in both Message and Interaction contexts.
 
 ## Features
-
 -   Easy to use
 -   Support for preconditions.
 -   Based on command class.
 
 ## Installation
-
 `@stegripe/command-context` depends on the following packages. Be sure to install these along with this package!
 
 -   [`discord.js`](https://npmjs.com/package/discord.js)
@@ -35,7 +32,6 @@ pnpm install @stegripe/command-context
 ```
 
 ## Typescript Declaration
-
 ```ts
 declare module "@sapphire/framework" {
     interface CommandOptions {
@@ -46,7 +42,6 @@ declare module "@sapphire/framework" {
 ```
 
 ## Usage
-
 ```ts
 import { Command } from "@sapphire/framework";
 import { CommandContext, ContextCommand } from "@stegripe/command-context";
@@ -57,7 +52,7 @@ export class MyCommand extends ContextCommand {
         super(context, {
             ...options,
             name: "my-command",
-            description: "This is my command!",
+            description: "This is my command.",
             chatInputCommand() {
                 return new SlashCommandBuilder()
                     .setName(this.name)
@@ -80,7 +75,6 @@ export class MyCommand extends ContextCommand {
 ```
 
 ## With Decorators
-
 ```ts
 import { ApplyOptions } from "@sapphire/decorators";
 import { Command } from "@sapphire/framework";
@@ -89,7 +83,7 @@ import { SlashCommandBuilder } from "discord.js";
 
 @ApplyOptions<Command.Options>({
     name: "my-command",
-    description: "This is my command!",
+    description: "This is my command.",
     chatInputCommand(opts) {
         return new SlashCommandBuilder().setName(opts.name).setDescription(opts.description);
     },

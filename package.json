@@ -1,20 +1,17 @@
 {
     "name": "@stegripe/sapphire-plugins",
-    "private": true,
-    "description": "A template to generate well-configured project base for Stegripe.",
-    "homepage": "https://github.com/stegripe/template#readme",
-    "bugs": {
-        "url": "https://github.com/stegripe/template/issues"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/stegripe/template.git"
-    },
+    "version": "1.0.0-pre",
+    "description": "A bunch of plugins for the Sapphire Framework that used we used in our projects",
     "license": "AGPL-3.0",
     "author": "Stegripe Development <support@stegripe.org>",
-    "workspaces": [
-        "packages/*"
-    ],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/stegripe/sapphire-plugins.git"
+    },
+    "bugs": {
+        "url": "https://github.com/stegripe/sapphire-plugins/issues"
+    },
+    "homepage": "https://docs.stegripe.org",
     "scripts": {
         "build": "turbo build",
         "build:docs": "typedoc",
@@ -25,6 +22,14 @@
         "pretty:write": "turbo pretty:write",
         "typecheck": "turbo typecheck",
         "release": "pnpm build && changeset version && changeset publish"
+    },
+    "workspaces": [
+        "packages/*"
+    ],
+    "packageManager": "pnpm@9.5.0",
+    "engines": {
+        "node": ">=20.9",
+        "npm": ">=10"
     },
     "devDependencies": {
         "@changesets/cli": "^2.27.7",
@@ -39,10 +44,5 @@
         "typedoc-plugin-djs-links": "^2.2.1",
         "typedoc-plugin-mdn-links": "^3.2.5",
         "typescript": "^5.4.5"
-    },
-    "packageManager": "pnpm@9.5.0",
-    "engines": {
-        "node": ">=20.9",
-        "npm": ">=10"
     }
 }

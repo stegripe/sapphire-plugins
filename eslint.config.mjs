@@ -10,7 +10,9 @@ const config = [
     ...node,
     ...prettier,
     ...typescript,
-    { ignores: ["**/node_modules", "**/dist"] },
+    {
+        ignores: ["**/node_modules", "**/dist"]
+    },
     {
         languageOptions: {
             parserOptions: {

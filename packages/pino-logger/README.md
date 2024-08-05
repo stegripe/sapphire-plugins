@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://cdn.stegripe.org/images/icon.png" alt="Stegripe Logo" width="256" height="256" />
+<img src="https://cdn.stegripe.org/images/logo.png" alt="Stegripe Logo" width="135">
 
 # @stegripe/pino-logger
 
@@ -11,15 +11,12 @@
 </div>
 
 ## Description
-
 This plugin is used to create custom loggers with Pino.
 
 ## Features
-
 -   Easy to use
 
 ## Installation
-
 `@stegripe/pino-logger` depends on the following packages. Be sure to install these along with this package!
 
 -   [`pino`](https://npmjs.com/package/pino)
@@ -34,7 +31,6 @@ pnpm install @stegripe/pino-logger
 ```
 
 ## Usage
-
 ```ts
 import { SapphireClient, SapphireClientOptions } from "@sapphire/framework";
 import { PinoLogger } from "@stegripe/pino-logger";
@@ -59,7 +55,6 @@ export class MyClient extends SapphireClient {
 ```
 
 ## With Custom Formatters
-
 ```ts
 import { SapphireClient, SapphireClientOptions } from "@sapphire/framework";
 import { PinoLogger } from "@stegripe/pino-logger";
@@ -77,13 +72,11 @@ export class MyClient extends SapphireClient {
                         bindings: () => ({ pid: `MyClient@${process.pid}` })
                     },
                     transport: {
-                        targets: [
-                            {
-                                target: "pino-pretty",
-                                level: ISDEV ? "debug" : "info",
-                                options: { translateTime: "SYS:yyyy-mm-dd HH:MM:ss" }
-                            }
-                        ]
+                        targets: [{
+                            target: "pino-pretty",
+                            level: ISDEV ? "debug" : "info",
+                            options: { translateTime: "SYS:yyyy-mm-dd HH:MM:ss" }
+                        }]
                     }
                 })
             }

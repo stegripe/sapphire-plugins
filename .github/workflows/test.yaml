@@ -1,4 +1,4 @@
-name: Lint code and compile test
+name: Lint code and compile setup script
 
 on:
   push:
@@ -56,4 +56,4 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Test compile
-        run: pnpm build && pnpm clean
+        run: pnpm run build && pnpm run clean
