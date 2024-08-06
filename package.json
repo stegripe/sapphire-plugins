@@ -1,6 +1,6 @@
 {
     "name": "@stegripe/sapphire-plugins",
-    "version": "1.0.1",
+    "version": "1.0.0",
     "description": "A bunch of plugins for the Sapphire Framework that used we used in our projects",
     "license": "AGPL-3.0",
     "author": "Stegripe Development <support@stegripe.org>",

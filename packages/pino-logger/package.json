@@ -1,6 +1,6 @@
 {
     "name": "@stegripe/pino-logger",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "A simple logger for Sapphire Framework using Pino.",
     "license": "AGPL-3.0",
     "author": "Stegripe Development <support@stegripe.org>",
