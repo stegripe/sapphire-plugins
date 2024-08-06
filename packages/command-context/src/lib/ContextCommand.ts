@@ -14,31 +14,40 @@ import { MessageContext } from "./structures/MessageContext.js";
 import { MessageContextMenuCommandInteractionContext } from "./structures/MessageContextMenuCommandInteractionContext.js";
 import { UserContextMenuCommandInteractionContext } from "./structures/UserContextMenuCommandInteractionContext.js";
 
-export abstract class ContextCommand<
-    PreParseReturn extends Args = Args,
-    Options extends Command.Options = Command.Options
-> extends Command<PreParseReturn, Options> {
-    public readonly chatInputCommand?: SlashCommandBuilder;
-    public readonly contextMenuCommand?: ContextMenuCommandBuilder;
+export abstract class ContextCommand extends Command {
+    public chatInputCommand?: SlashCommandBuilder;
+    public contextMenuCommand?: ContextMenuCommandBuilder;
 
-    public constructor(context: Command.LoaderContext, options?: Options) {
+    public constructor(context: Command.LoaderContext, options?: Command.Options) {
         super(context, options);
-
-        this.chatInputCommand = this.options.chatInputCommand?.(this.options);
-        this.contextMenuCommand = this.options.contextMenuCommand?.(this.options);
 
         const registry = this.applicationCommandRegistry;
 
-        if (this.chatInputCommand) {
-            registry.registerChatInputCommand(this.chatInputCommand, {
-                behaviorWhenNotIdentical: RegisterBehavior.Overwrite
-            });
+        if (this.options.chatInputCommand) {
+            registry.registerChatInputCommand(
+                builder => {
+                    this.chatInputCommand = this.options.chatInputCommand!(builder, this.options);
+                    return this.chatInputCommand;
+                },
+                {
+                    behaviorWhenNotIdentical: RegisterBehavior.Overwrite
+                }
+            );
         }
 
-        if (this.contextMenuCommand) {
-            registry.registerContextMenuCommand(this.contextMenuCommand, {
-                behaviorWhenNotIdentical: RegisterBehavior.Overwrite
-            });
+        if (this.options.contextMenuCommand) {
+            registry.registerContextMenuCommand(
+                builder => {
+                    this.contextMenuCommand = this.options.contextMenuCommand!(
+                        builder,
+                        this.options
+                    );
+                    return this.contextMenuCommand;
+                },
+                {
+                    behaviorWhenNotIdentical: RegisterBehavior.Overwrite
+                }
+            );
         }
     }
 
@@ -65,7 +74,13 @@ export abstract class ContextCommand<
 
 declare module "@sapphire/framework" {
     interface CommandOptions {
-        chatInputCommand?(options: Command.Options): SlashCommandBuilder;
-        contextMenuCommand?(options: Command.Options): ContextMenuCommandBuilder;
+        chatInputCommand?(
+            builder: SlashCommandBuilder,
+            options: Command.Options
+        ): SlashCommandBuilder;
+        contextMenuCommand?(
+            builder: ContextMenuCommandBuilder,
+            options: Command.Options
+        ): ContextMenuCommandBuilder;
     }
 }
