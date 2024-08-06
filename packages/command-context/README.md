@@ -8,8 +8,8 @@
 
 [![GitHub](https://img.shields.io/github/license/stegripe/sapphire-plugins)](https://github.com/stegripe/sapphire-plugins/blob/main/LICENSE.md)
 <a href="https://www.npmjs.com/package/@stegripe/command-context">
-  <img src="https://img.shields.io/npm/v/@stegripe/command-context?maxAge=3600" alt="npm version" ></a>
-  <img src="https://img.shields.io/npm/dt/@stegripe/command-context?maxAge=3600" alt="npm downloads">
+<img src="https://img.shields.io/npm/v/@stegripe/command-context?maxAge=3600" alt="npm version" ></a>
+<img src="https://img.shields.io/npm/dt/@stegripe/command-context?maxAge=3600" alt="npm downloads">
 
 </div>
 
@@ -34,16 +34,6 @@ You can use the following command to install this package, or replace `pnpm inst
 pnpm install @stegripe/command-context
 ```
 
-## Typescript Declaration
-```ts
-declare module "@sapphire/framework" {
-    interface CommandOptions {
-        chatInputCommand?(options: Command.Options): SlashCommandBuilder;
-        contextMenuCommand?(options: Command.Options): ContextMenuCommandBuilder;
-    }
-}
-```
-
 ## Usage
 ```ts
 import { Command } from "@sapphire/framework";
@@ -56,15 +46,11 @@ export class MyCommand extends ContextCommand {
             ...options,
             name: "my-command",
             description: "This is my command.",
-            chatInputCommand() {
-                return new SlashCommandBuilder()
-                    .setName(this.name)
-                    .setDescription(this.description);
+            chatInputCommand(builder) {
+                return builder.setName(this.name).setDescription(this.description);
             },
-            contextMenuCommand() {
-                return new ContextMenuCommandBuilder()
-                    .setName(this.name)
-                    .setType(ApplicationCommandType.Message);
+            contextMenuCommand(builder) {
+                return builder.setName(this.name).setType(ApplicationCommandType.Message);
             }
         });
     }
@@ -87,13 +73,11 @@ import { SlashCommandBuilder } from "discord.js";
 @ApplyOptions<Command.Options>({
     name: "my-command",
     description: "This is my command.",
-    chatInputCommand(opts) {
-        return new SlashCommandBuilder().setName(opts.name).setDescription(opts.description);
+    chatInputCommand(builder, opts) {
+        return builder.setName(opts.name).setDescription(opts.description);
     },
-    contextMenuCommand(opts) {
-        return new ContextMenuCommandBuilder()
-            .setName(opts.name)
-            .setType(ApplicationCommandType.Message);
+    contextMenuCommand(builder, opts) {
+        return builder.setName(opts.name).setType(ApplicationCommandType.Message);
     }
 })
 export class MyCommand extends ContextCommand {

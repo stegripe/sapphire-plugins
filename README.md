@@ -4,7 +4,7 @@
 
 # @stegripe/sapphire-plugins
 
-## A bunch of plugins for the Sapphire Framework that used we used in our projects.
+## A bunch of plugins for the Sapphire Framework that we used in our projects.
 
 [![GitHub](https://img.shields.io/github/license/stegripe/sapphire-plugins)](https://github.com/stegripe/sapphire-plugins/blob/main/LICENSE.md)
 
