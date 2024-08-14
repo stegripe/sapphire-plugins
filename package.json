@@ -26,7 +26,7 @@
     "workspaces": [
         "packages/*"
     ],
-    "packageManager": "pnpm@9.7.0",
+    "packageManager": "pnpm@9.7.1",
     "engines": {
         "node": ">=20.9",
         "npm": ">=10"
@@ -38,7 +38,7 @@
         "@types/node": "^20.14.15",
         "prettier": "^3.3.3",
         "rimraf": "^6.0.1",
-        "turbo": "^2.0.12",
+        "turbo": "^2.0.13",
         "typedoc": "^0.26.5",
         "typedoc-material-theme": "^1.1.0",
         "typedoc-plugin-djs-links": "^2.2.1",
