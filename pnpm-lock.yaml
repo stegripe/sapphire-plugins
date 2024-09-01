@@ -18,8 +18,8 @@ importers:
         specifier: ^1.0.1
         version: 1.0.1(@stylistic/eslint-plugin@2.3.0(eslint@9.9.1)(typescript@5.5.4))(eslint-config-prettier@9.1.0(eslint@9.9.1))(eslint-import-resolver-typescript@3.6.1(@typescript-eslint/parser@7.17.0(eslint@9.9.1)(typescript@5.5.4))(eslint-plugin-import@2.29.1)(eslint@9.9.1))(eslint-plugin-import-x@3.1.0(eslint@9.9.1)(typescript@5.5.4))(eslint-plugin-jsdoc@48.8.3(eslint@9.9.1))(eslint-plugin-n@17.9.0(eslint@9.9.1))(eslint-plugin-promise@6.6.0(eslint@9.9.1))(eslint-plugin-tsdoc@0.3.0)(eslint-plugin-unicorn@54.0.0(eslint@9.9.1))(eslint@9.9.1)(globals@15.8.0)(typescript-eslint@7.17.0(eslint@9.9.1)(typescript@5.5.4))(typescript@5.5.4)
       '@types/node':
-        specifier: ^20.16.2
-        version: 20.16.2
+        specifier: ^20.16.3
+        version: 20.16.3
       prettier:
         specifier: ^3.3.3
         version: 3.3.3
@@ -39,8 +39,8 @@ importers:
         specifier: ^2.2.1
         version: 2.2.1(typedoc@0.26.6(typescript@5.5.4))
       typedoc-plugin-mdn-links:
-        specifier: ^3.2.10
-        version: 3.2.10(typedoc@0.26.6(typescript@5.5.4))
+        specifier: ^3.2.11
+        version: 3.2.11(typedoc@0.26.6(typescript@5.5.4))
       typescript:
         specifier: ^5.5.4
         version: 5.5.4
@@ -647,8 +647,8 @@ packages:
   '@types/node@12.20.55':
     resolution: {integrity: sha512-J8xLz7q2OFulZ2cyGTLE1TbbZcjpno7FaN6zdJNrgAdrJ+DZzh/uFR6YrTb4C+nXakvud8Q4+rbhoIWlYQbUFQ==}
 
-  '@types/node@20.16.2':
-    resolution: {integrity: sha512-91s/n4qUPV/wg8eE9KHYW1kouTfDk2FPGjXbBMfRWP/2vg1rCXNQL1OCabwGs0XSdukuK+MwCDXE30QpSeMUhQ==}
+  '@types/node@20.16.3':
+    resolution: {integrity: sha512-/wdGiWRkMOm53gAsSyFMXFZHbVg7C6CbkrzHNpaHoYfsUWPg7m6ZRKtvQjgvQ9i8WT540a3ydRlRQbxjY30XxQ==}
 
   '@types/normalize-package-data@2.4.4':
     resolution: {integrity: sha512-37i+OaWTh9qeK4LSHPsyRC7NahnGotNuZvjLSgcPzblpHB3rrCJxAOgI5gCdKm7coonsaX1Of0ILiTcnZjbfxA==}
@@ -2363,8 +2363,8 @@ packages:
     peerDependencies:
       typedoc: '>= 0.23.14 || 0.24.x || 0.25.x'
 
-  typedoc-plugin-mdn-links@3.2.10:
-    resolution: {integrity: sha512-0/Op8Rq+Z6fYTIQG1v0CndMTLUxBrg0OtH1t82dbuKf9cUiUbuHt+MAr6Nvf1pJaH76bT0BKIksfNjSDBaKf5g==}
+  typedoc-plugin-mdn-links@3.2.11:
+    resolution: {integrity: sha512-0VlF21O3S1L373UTkUFleoQDrgkh5quAqjCVusBaa3czLahK6LsUxQj6PRqbT5xN0emUVYnT7UTwe8haU2MFrw==}
     peerDependencies:
       typedoc: '>= 0.23.14 || 0.24.x || 0.25.x || 0.26.x'
 
@@ -3080,7 +3080,7 @@ snapshots:
 
   '@types/node@12.20.55': {}
 
-  '@types/node@20.16.2':
+  '@types/node@20.16.3':
     dependencies:
       undici-types: 6.19.6
 
@@ -3092,7 +3092,7 @@ snapshots:
 
   '@types/ws@8.5.11':
     dependencies:
-      '@types/node': 20.16.2
+      '@types/node': 20.16.3
 
   '@typescript-eslint/eslint-plugin@7.17.0(@typescript-eslint/parser@7.17.0(eslint@9.9.1)(typescript@5.5.4))(eslint@9.9.1)(typescript@5.5.4)':
     dependencies:
@@ -4969,7 +4969,7 @@ snapshots:
     dependencies:
       typedoc: 0.26.6(typescript@5.5.4)
 
-  typedoc-plugin-mdn-links@3.2.10(typedoc@0.26.6(typescript@5.5.4)):
+  typedoc-plugin-mdn-links@3.2.11(typedoc@0.26.6(typescript@5.5.4)):
     dependencies:
       typedoc: 0.26.6(typescript@5.5.4)
 
