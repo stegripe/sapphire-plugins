@@ -42,7 +42,7 @@
         "typedoc": "^0.26.6",
         "typedoc-material-theme": "^1.1.0",
         "typedoc-plugin-djs-links": "^2.2.1",
-        "typedoc-plugin-mdn-links": "^3.2.11",
+        "typedoc-plugin-mdn-links": "^4.0.5",
         "typescript": "^5.6.3"
     }
 }
