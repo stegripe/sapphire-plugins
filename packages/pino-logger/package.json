@@ -45,16 +45,16 @@
         "npm": ">=10"
     },
     "dependencies": {
-        "@sapphire/framework": "^5.2.1",
-        "@sapphire/utilities": "^3.17.0",
-        "discord.js": "^14.15.3",
-        "pino": "^9.3.2",
-        "tslib": "^2.7.0"
+        "@sapphire/framework": "^5.3.6",
+        "@sapphire/utilities": "^3.18.2",
+        "discord.js": "^14.22.1",
+        "pino": "^9.9.0",
+        "tslib": "^2.8.1"
     },
     "devDependencies": {
         "eslint": "^9.14.0",
-        "prettier": "^3.3.3",
-        "tsup": "^8.2.4",
+        "prettier": "^3.6.2",
+        "tsup": "^8.5.0",
         "typescript": "^5.6.3"
     }
 }
