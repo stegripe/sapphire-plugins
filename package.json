@@ -26,7 +26,7 @@
     "workspaces": [
         "packages/*"
     ],
-    "packageManager": "pnpm@9.9.0",
+    "packageManager": "pnpm@10.18.0",
     "engines": {
         "node": ">=20.9",
         "npm": ">=10"
