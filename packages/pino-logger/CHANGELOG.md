@@ -1,19 +1,25 @@
 # @stegripe/command-context
 
+## 1.1.0
+
+### Minor Changes
+
+- 995e360: - chore(\*): Migrate linter and formatter to biomejs
+
 ## 1.0.2
 
 ### Patch Changes
 
--   38cdccc: Fix ESM & CJS module
+- 38cdccc: Fix ESM & CJS module
 
 ## 1.0.1
 
 ### Bug Fixes
 
--   Fix NPM versioning
+- Fix NPM versioning
 
 ## 1.0.0
 
 ### Features
 
--   Initialize Project
+- Initialize Project
