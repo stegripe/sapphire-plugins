@@ -1,13 +1,17 @@
 {
     "$schema": "https://json.schemastore.org/tsconfig",
-    "extends": [
-        "@sapphire/ts-config",
-        "@sapphire/ts-config/bundler",
-        "@sapphire/ts-config/extra-strict",
-        "@sapphire/ts-config/verbatim"
-    ],
     "compilerOptions": {
-        "noEmit": true,
-        "incremental": false
+        "target": "ESNext",
+        "module": "Node16",
+        "moduleResolution": "Node16",
+        "lib": ["ESNext"],
+        "strict": true,
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "skipLibCheck": true,
+        "noEmitHelpers": true,
+        "importHelpers": true
     }
 }

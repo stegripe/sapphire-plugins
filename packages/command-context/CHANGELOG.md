@@ -4,8 +4,7 @@
 
 ### Minor Changes
 
-- 995e360: - chore(\*): Migrate linter and formatter to biomejs
-  - feat: add SubCommand
+- 995e360: Migrate linter and formatter to biomejs
 
 ## 1.0.2
 

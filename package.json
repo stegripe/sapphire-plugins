@@ -12,6 +12,7 @@
         "url": "https://github.com/stegripe/sapphire-plugins/issues"
     },
     "homepage": "https://docs.stegripe.org",
+    "type": "module",
     "scripts": {
         "build": "turbo build --dangerously-disable-package-manager-check",
         "build:docs": "typedoc",
@@ -33,7 +34,7 @@
         "@stegripe/biomejs-config": "^1.1.0",
         "@types/node": "^22.18.8",
         "rimraf": "^6.0.1",
-        "tsup": "^8.5.0",
+        "tsdown": "^0.15.6",
         "turbo": "^2.5.8",
         "typedoc": "^0.26.11",
         "typedoc-material-theme": "^1.4.0",
