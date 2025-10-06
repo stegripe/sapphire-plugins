@@ -13,12 +13,12 @@
     },
     "homepage": "https://docs.stegripe.org",
     "scripts": {
-        "build": "turbo build",
+        "build": "turbo build --dangerously-disable-package-manager-check",
         "build:docs": "typedoc",
-        "clean": "turbo clean",
-        "lint": "turbo lint",
-        "lint:fix": "turbo lint:fix",
-        "typecheck": "turbo typecheck",
+        "clean": "turbo clean --dangerously-disable-package-manager-check",
+        "lint": "turbo lint --dangerously-disable-package-manager-check",
+        "lint:fix": "turbo lint:fix --dangerously-disable-package-manager-check",
+        "typecheck": "turbo typecheck --dangerously-disable-package-manager-check",
         "release": "pnpm build && changeset version && changeset publish"
     },
     "workspaces": ["packages/*"],

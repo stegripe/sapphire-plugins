@@ -32,10 +32,7 @@
             "default": "./dist/index.js"
         }
     },
-    "files": [
-        "dist",
-        "package.json"
-    ],
+    "files": ["dist", "package.json"],
     "publishConfig": {
         "access": "public"
     },
