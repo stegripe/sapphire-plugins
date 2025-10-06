@@ -1,6 +1,6 @@
 {
     "name": "@stegripe/command-context",
-    "version": "1.0.2",
+    "version": "1.1.0",
     "description": "Handle Message and Interaction Command in one place.",
     "license": "AGPL-3.0",
     "author": "Stegripe Development <support@stegripe.org>",
@@ -32,7 +32,10 @@
             "default": "./dist/index.js"
         }
     },
-    "files": ["dist", "package.json"],
+    "files": [
+        "dist",
+        "package.json"
+    ],
     "publishConfig": {
         "access": "public"
     },
