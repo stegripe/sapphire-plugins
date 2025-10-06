@@ -1,5 +1,11 @@
 # @stegripe/command-context
 
+## 1.2.0
+
+### Minor Changes
+
+- 4b4fdef: Change bundler to tsdown and fix ESM build.
+
 ## 1.1.0
 
 ### Minor Changes
