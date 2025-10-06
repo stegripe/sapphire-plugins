@@ -1,35 +1,34 @@
-/* eslint-disable typescript/explicit-function-return-type, typescript/explicit-module-boundary-types */
-import type {
-    AnySelectMenuInteraction,
-    APIModalInteractionResponseCallbackData,
-    AutocompleteInteraction,
-    AwaitModalSubmitOptions,
-    BooleanCache,
-    ButtonInteraction,
-    CacheType,
-    ChannelSelectMenuInteraction,
-    ChatInputCommandInteraction,
-    CommandInteraction,
-    ContextMenuCommandInteraction,
-    InteractionDeferReplyOptions,
-    InteractionEditReplyOptions,
-    InteractionReplyOptions,
-    InteractionResponse,
-    JSONEncodable,
-    MentionableSelectMenuInteraction,
-    Message,
-    MessageComponentInteraction,
-    MessageContextMenuCommandInteraction,
-    MessagePayload,
-    MessageResolvable,
-    ModalComponentData,
-    ModalSubmitInteraction,
-    RepliableInteraction,
-    RoleSelectMenuInteraction,
-    Snowflake,
-    StringSelectMenuInteraction,
-    UserContextMenuCommandInteraction,
-    UserSelectMenuInteraction
+import {
+    type AnySelectMenuInteraction,
+    type APIModalInteractionResponseCallbackData,
+    type AutocompleteInteraction,
+    type AwaitModalSubmitOptions,
+    type BooleanCache,
+    type ButtonInteraction,
+    type CacheType,
+    type ChannelSelectMenuInteraction,
+    type ChatInputCommandInteraction,
+    type CommandInteraction,
+    type ContextMenuCommandInteraction,
+    type InteractionDeferReplyOptions,
+    type InteractionEditReplyOptions,
+    type InteractionReplyOptions,
+    type InteractionResponse,
+    type JSONEncodable,
+    type MentionableSelectMenuInteraction,
+    type Message,
+    type MessageComponentInteraction,
+    type MessageContextMenuCommandInteraction,
+    type MessagePayload,
+    type MessageResolvable,
+    type ModalComponentData,
+    type ModalSubmitInteraction,
+    type RepliableInteraction,
+    type RoleSelectMenuInteraction,
+    type Snowflake,
+    type StringSelectMenuInteraction,
+    type UserContextMenuCommandInteraction,
+    type UserSelectMenuInteraction,
 } from "discord.js";
 import { CommandContext } from "./CommandContext.js";
 
@@ -47,7 +46,15 @@ export class CommandInteractionContext extends CommandContext {
     }
 
     public get options() {
-        return this.context.options;
+        if (
+            this.context.isChatInputCommand() ||
+            this.context.isMessageContextMenuCommand() ||
+            this.context.isUserContextMenuCommand()
+        ) {
+            return this.context.options;
+        }
+
+        return null;
     }
 
     public get commandId() {
@@ -119,54 +126,54 @@ export class CommandInteractionContext extends CommandContext {
     }
 
     public deferReply(
-        options: InteractionDeferReplyOptions
+        options: InteractionDeferReplyOptions,
     ): Promise<Message<BooleanCache<CacheType>>>;
 
     public deferReply(
-        options?: InteractionDeferReplyOptions
+        options?: InteractionDeferReplyOptions,
     ): Promise<InteractionResponse<BooleanCache<CacheType>>>;
 
-    public async deferReply(
-        options?: InteractionDeferReplyOptions | undefined
+    public deferReply(
+        options?: InteractionDeferReplyOptions | undefined,
     ): Promise<InteractionResponse<BooleanCache<CacheType>> | Message<BooleanCache<CacheType>>> {
         return this.context.deferReply(options);
     }
 
-    public async deleteReply(message?: MessageResolvable) {
+    public deleteReply(message?: MessageResolvable) {
         return this.context.deleteReply(message);
     }
 
-    public async editReply(
-        options: InteractionEditReplyOptions | MessagePayload | string
+    public editReply(
+        options: InteractionEditReplyOptions | MessagePayload | string,
     ): Promise<Message<BooleanCache<CacheType>>> {
         return this.context.editReply(options);
     }
 
-    public async fetchReply(message?: Snowflake): Promise<Message<BooleanCache<CacheType>>> {
+    public fetchReply(message?: Snowflake): Promise<Message<BooleanCache<CacheType>>> {
         return this.context.fetchReply(message);
     }
 
-    public async followUp(
-        options: InteractionReplyOptions | MessagePayload | string
+    public followUp(
+        options: InteractionReplyOptions | MessagePayload | string,
     ): Promise<Message<BooleanCache<CacheType>>> {
         return this.context.followUp(options);
     }
 
-    public async showModal(
+    public showModal(
         modal:
             | APIModalInteractionResponseCallbackData
             | JSONEncodable<APIModalInteractionResponseCallbackData>
-            | ModalComponentData
-    ): Promise<void> {
+            | ModalComponentData,
+    ) {
         return this.context.showModal(modal);
     }
 
-    public async sendPremiumRequired(): Promise<void> {
+    public sendPremiumRequired(): Promise<void> {
         return this.context.sendPremiumRequired();
     }
 
-    public async awaitModalSubmit(
-        options: AwaitModalSubmitOptions<ModalSubmitInteraction>
+    public awaitModalSubmit(
+        options: AwaitModalSubmitOptions<ModalSubmitInteraction>,
     ): Promise<ModalSubmitInteraction> {
         return this.context.awaitModalSubmit(options);
     }

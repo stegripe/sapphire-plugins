@@ -1,9 +1,0 @@
-{
-    "$schema": "http://json.schemastore.org/tsconfig",
-    "extends": "../../tsconfig.eslint.json",
-    "compilerOptions": {
-        "allowJs": true
-    },
-    "include": ["src/**/*.ts"],
-    "exclude": ["node_modules"]
-}

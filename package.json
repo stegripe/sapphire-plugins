@@ -15,34 +15,30 @@
     "scripts": {
         "build": "turbo build",
         "build:docs": "typedoc",
-        "clean": "rimraf -g \"packages/**/dist\"",
+        "clean": "turbo clean",
         "lint": "turbo lint",
         "lint:fix": "turbo lint:fix",
-        "pretty": "turbo pretty",
-        "pretty:write": "turbo pretty:write",
         "typecheck": "turbo typecheck",
         "release": "pnpm build && changeset version && changeset publish"
     },
-    "workspaces": [
-        "packages/*"
-    ],
-    "packageManager": "pnpm@9.9.0",
+    "workspaces": ["packages/*"],
     "engines": {
-        "node": ">=20.9",
+        "node": ">=22",
         "npm": ">=10"
     },
     "devDependencies": {
-        "@changesets/cli": "^2.27.7",
+        "@biomejs/biome": "^2.2.5",
+        "@changesets/cli": "^2.29.7",
         "@sapphire/ts-config": "^5.0.1",
-        "@stegripe/eslint-config": "^1.0.1",
-        "@types/node": "^22.9.0",
-        "prettier": "^3.3.3",
+        "@stegripe/biomejs-config": "^1.1.0",
+        "@types/node": "^22.18.8",
         "rimraf": "^6.0.1",
-        "turbo": "^2.1.1",
-        "typedoc": "^0.26.6",
-        "typedoc-material-theme": "^1.1.0",
+        "tsup": "^8.5.0",
+        "turbo": "^2.5.8",
+        "typedoc": "^0.26.11",
+        "typedoc-material-theme": "^1.4.0",
         "typedoc-plugin-djs-links": "^2.2.1",
-        "typedoc-plugin-mdn-links": "^5.0.1",
-        "typescript": "^5.6.3"
+        "typedoc-plugin-mdn-links": "^5.0.9",
+        "typescript": "^5.9.3"
     }
 }

@@ -5,16 +5,13 @@
             "dependsOn": ["^build"],
             "outputs": ["dist/**"]
         },
+        "clean": {
+            "outputs": []
+        },
         "lint": {
             "outputs": []
         },
         "lint:fix": {
-            "outputs": []
-        },
-        "pretty": {
-            "outputs": []
-        },
-        "pretty:write": {
             "outputs": []
         },
         "typecheck": {

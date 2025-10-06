@@ -1,5 +1,4 @@
-/* eslint-disable typescript/explicit-function-return-type, typescript/explicit-module-boundary-types */
-import type { MessageContextMenuCommandInteraction } from "discord.js";
+import { type MessageContextMenuCommandInteraction } from "discord.js";
 import { CommandInteractionContext } from "./CommandInteractionContext.js";
 
 export class MessageContextMenuCommandInteractionContext extends CommandInteractionContext {

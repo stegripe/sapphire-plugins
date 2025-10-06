@@ -1,15 +1,14 @@
-import type { Args } from "@sapphire/framework";
-import { Command, RegisterBehavior } from "@sapphire/framework";
-import type { Awaitable } from "@sapphire/utilities";
-import type {
-    ChatInputCommandInteraction,
-    ContextMenuCommandBuilder,
-    ContextMenuCommandInteraction,
-    Message,
-    SlashCommandBuilder
+import { type Args, Command, RegisterBehavior } from "@sapphire/framework";
+import { type Awaitable } from "@sapphire/utilities";
+import {
+    type ChatInputCommandInteraction,
+    type ContextMenuCommandBuilder,
+    type ContextMenuCommandInteraction,
+    type Message,
+    type SlashCommandBuilder,
 } from "discord.js";
 import { ChatInputCommandInteractionContext } from "./structures/ChatInputCommandInteractionContext.js";
-import type { CommandContext } from "./structures/CommandContext.js";
+import { type CommandContext } from "./structures/CommandContext.js";
 import { MessageContext } from "./structures/MessageContext.js";
 import { MessageContextMenuCommandInteractionContext } from "./structures/MessageContextMenuCommandInteractionContext.js";
 import { UserContextMenuCommandInteractionContext } from "./structures/UserContextMenuCommandInteractionContext.js";
@@ -25,28 +24,28 @@ export abstract class ContextCommand extends Command {
 
         if (this.options.chatInputCommand) {
             registry.registerChatInputCommand(
-                builder => {
+                (builder) => {
                     this.chatInputCommand = this.options.chatInputCommand!(builder, this.options);
                     return this.chatInputCommand;
                 },
                 {
-                    behaviorWhenNotIdentical: RegisterBehavior.Overwrite
-                }
+                    behaviorWhenNotIdentical: RegisterBehavior.Overwrite,
+                },
             );
         }
 
         if (this.options.contextMenuCommand) {
             registry.registerContextMenuCommand(
-                builder => {
+                (builder) => {
                     this.contextMenuCommand = this.options.contextMenuCommand!(
                         builder,
-                        this.options
+                        this.options,
                     );
                     return this.contextMenuCommand;
                 },
                 {
-                    behaviorWhenNotIdentical: RegisterBehavior.Overwrite
-                }
+                    behaviorWhenNotIdentical: RegisterBehavior.Overwrite,
+                },
             );
         }
     }
@@ -62,7 +61,9 @@ export abstract class ContextCommand extends Command {
     public override contextMenuRun(interaction: ContextMenuCommandInteraction): Awaitable<unknown> {
         if (interaction.isMessageContextMenuCommand()) {
             return this.contextRun(new MessageContextMenuCommandInteractionContext(interaction));
-        } else if (interaction.isUserContextMenuCommand()) {
+        }
+
+        if (interaction.isUserContextMenuCommand()) {
             return this.contextRun(new UserContextMenuCommandInteractionContext(interaction));
         }
 
@@ -76,11 +77,11 @@ declare module "@sapphire/framework" {
     interface CommandOptions {
         chatInputCommand?(
             builder: SlashCommandBuilder,
-            options: Command.Options
+            options: Command.Options,
         ): SlashCommandBuilder;
         contextMenuCommand?(
             builder: ContextMenuCommandBuilder,
-            options: Command.Options
+            options: Command.Options,
         ): ContextMenuCommandBuilder;
     }
 }

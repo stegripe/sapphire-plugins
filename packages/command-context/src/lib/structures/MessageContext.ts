@@ -1,256 +1,193 @@
-import type { Args } from "@sapphire/framework";
-import type {
-    ActionRow,
-    AnyThreadChannel,
-    Attachment,
-    AwaitMessageCollectorOptionsParams,
-    AwaitReactionsOptions,
-    ClientApplication,
-    Collection,
-    CommandInteractionResolvedData,
-    Embed,
-    EmojiIdentifierResolvable,
-    InteractionCollector,
-    MappedInteractionTypes,
-    Message,
-    MessageActionRowComponent,
-    MessageActivity,
-    MessageCollectorOptionsParams,
-    MessageComponentType,
-    MessageEditOptions,
-    MessageFlagsBitField,
-    MessageInteraction,
-    MessageMentions,
-    MessagePayload,
-    MessageReaction,
-    MessageReference,
-    Poll,
-    ReactionCollector,
-    ReactionCollectorOptions,
-    ReactionManager,
-    RoleSubscriptionData,
-    Snowflake,
-    StartThreadOptions,
-    Sticker,
-    Webhook
+import { type Args } from "@sapphire/framework";
+import {
+    type AwaitMessageCollectorOptionsParams,
+    type AwaitReactionsOptions,
+    type Collection,
+    type EmojiIdentifierResolvable,
+    type MappedInteractionTypes,
+    type Message,
+    type MessageCollectorOptionsParams,
+    type MessageComponentType,
+    type MessageEditOptions,
+    type MessagePayload,
+    type MessageReaction,
+    type ReactionCollectorOptions,
+    type Snowflake,
+    type StartThreadOptions,
 } from "discord.js";
 import { CommandContext } from "./CommandContext.js";
 
 export class MessageContext extends CommandContext {
     public constructor(
         public override readonly context: Message,
-        public readonly args?: Args
+        public readonly args?: Args,
     ) {
         super(context);
     }
 
-    public get activity(): MessageActivity | null {
+    public get activity() {
         return this.context.activity;
     }
 
-    public get attachments(): Collection<string, Attachment> {
+    public get attachments() {
         return this.context.attachments;
     }
 
-    public get bulkDeletable(): boolean {
-        throw new Error("Method not implemented.");
-    }
-
-    public get cleanContent(): string {
-        throw new Error("Method not implemented.");
-    }
-
-    public get components(): ActionRow<MessageActionRowComponent>[] {
+    public get components() {
         return this.context.components;
     }
 
-    public get content(): string {
+    public get content() {
         return this.context.content;
     }
 
-    public get crosspostable(): boolean {
-        throw new Error("Method not implemented.");
-    }
-
-    public get deletable(): boolean {
-        throw new Error("Method not implemented.");
-    }
-
-    public get editable(): boolean {
-        throw new Error("Method not implemented.");
-    }
-
-    public get editedAt(): Date | null {
-        throw new Error("Method not implemented.");
-    }
-
-    public get editedTimestamp(): number | null {
+    public get editedTimestamp() {
         return this.context.editedTimestamp;
     }
 
-    public get embeds(): Embed[] {
+    public get embeds() {
         return this.context.embeds;
     }
 
-    public get groupActivityApplication(): ClientApplication | null {
+    public get groupActivityApplication() {
         return this.context.groupActivityApplication;
     }
 
-    public get hasThread(): boolean {
-        throw new Error("Method not implemented.");
+    public get interaction() {
+        return this.context.interactionMetadata;
     }
 
-    public get interaction(): MessageInteraction | null {
-        return this.context.interaction;
-    }
-
-    public get mentions(): MessageMentions {
+    public get mentions() {
         return this.context.mentions;
     }
 
-    public get nonce(): number | string | null {
+    public get nonce() {
         return this.context.nonce;
     }
 
-    public get partial(): false {
-        throw new Error("Method not implemented.");
-    }
-
-    public get pinnable(): boolean {
-        throw new Error("Method not implemented.");
-    }
-
-    public get pinned(): boolean {
+    public get pinned() {
         return this.context.pinned;
     }
 
-    public get reactions(): ReactionManager {
+    public get reactions() {
         return this.context.reactions;
     }
 
-    public get stickers(): Collection<string, Sticker> {
+    public get stickers() {
         return this.context.stickers;
     }
 
-    public get position(): number | null {
+    public get position() {
         return this.context.position;
     }
 
-    public get roleSubscriptionData(): RoleSubscriptionData | null {
+    public get roleSubscriptionData() {
         return this.context.roleSubscriptionData;
     }
 
-    public get resolved(): CommandInteractionResolvedData | null {
+    public get resolved() {
         return this.context.resolved;
     }
 
-    public get system(): boolean {
+    public get system() {
         return this.context.system;
     }
 
-    public get thread(): AnyThreadChannel | null {
-        throw new Error("Method not implemented.");
-    }
-
-    public get tts(): boolean {
+    public get tts() {
         return this.context.tts;
     }
 
-    public get poll(): Poll | null {
+    public get poll() {
         return this.context.poll;
     }
 
-    public get url(): string {
-        throw new Error("Method not implemented.");
-    }
-
-    public get webhookId(): string | null {
+    public get webhookId() {
         return this.context.webhookId;
     }
 
-    public get flags(): Readonly<MessageFlagsBitField> {
+    public get flags() {
         return this.context.flags;
     }
 
-    public get reference(): MessageReference | null {
+    public get reference() {
         return this.context.reference;
     }
 
-    public async awaitMessageComponent<ComponentType extends MessageComponentType>(
-        options?: AwaitMessageCollectorOptionsParams<ComponentType> | undefined
+    public awaitMessageComponent<ComponentType extends MessageComponentType>(
+        options?: AwaitMessageCollectorOptionsParams<ComponentType> | undefined,
     ): Promise<MappedInteractionTypes[ComponentType]> {
         return this.context.awaitMessageComponent(options);
     }
 
-    public async awaitReactions(
-        options?: AwaitReactionsOptions
+    public awaitReactions(
+        options?: AwaitReactionsOptions,
     ): Promise<Collection<Snowflake, MessageReaction>> {
         return this.context.awaitReactions(options);
     }
 
-    public createReactionCollector(options?: ReactionCollectorOptions): ReactionCollector {
+    public createReactionCollector(options?: ReactionCollectorOptions) {
         return this.context.createReactionCollector(options);
     }
 
     public createMessageComponentCollector<ComponentType extends MessageComponentType>(
-        options?: MessageCollectorOptionsParams<ComponentType> | undefined
-    ): InteractionCollector<MappedInteractionTypes[ComponentType]> {
+        options?: MessageCollectorOptionsParams<ComponentType> | undefined,
+    ) {
         return this.context.createMessageComponentCollector(options);
     }
 
-    public async delete(): Promise<Message> {
+    public delete() {
         return this.context.delete();
     }
 
-    public async edit(content: MessageEditOptions | MessagePayload | string): Promise<Message> {
+    public edit(content: MessageEditOptions | MessagePayload | string) {
         return this.context.edit(content);
     }
 
-    public equals(message: Message, rawData: unknown): boolean {
+    public equals(message: Message, rawData: unknown) {
         return this.context.equals(message, rawData);
     }
 
-    public async fetchReference(): Promise<Message> {
+    public fetchReference() {
         return this.context.fetchReference();
     }
 
-    public async fetchWebhook(): Promise<Webhook> {
+    public fetchWebhook() {
         return this.context.fetchWebhook();
     }
 
-    public async crosspost(): Promise<Message> {
+    public crosspost() {
         return this.context.crosspost();
     }
 
-    public async fetch(force?: boolean): Promise<Message> {
+    public fetch(force?: boolean) {
         return this.context.fetch(force);
     }
 
-    public async pin(reason?: string): Promise<Message> {
+    public pin(reason?: string) {
         return this.context.pin(reason);
     }
 
-    public async react(emoji: EmojiIdentifierResolvable): Promise<MessageReaction> {
+    public react(emoji: EmojiIdentifierResolvable) {
         return this.context.react(emoji);
     }
 
-    public async removeAttachments(): Promise<Message> {
+    public removeAttachments() {
         return this.context.removeAttachments();
     }
 
-    public resolveComponent(customId: string): MessageActionRowComponent | null {
+    public resolveComponent(customId: string) {
         return this.context.resolveComponent(customId);
     }
 
-    public async startThread(options: StartThreadOptions): Promise<AnyThreadChannel> {
+    public startThread(options: StartThreadOptions) {
         return this.context.startThread(options);
     }
 
-    public async suppressEmbeds(suppress?: boolean): Promise<Message> {
+    public suppressEmbeds(suppress?: boolean) {
         return this.context.suppressEmbeds(suppress);
     }
 
-    public async unpin(reason?: string): Promise<Message> {
+    public unpin(reason?: string) {
         return this.context.unpin(reason);
     }
 }

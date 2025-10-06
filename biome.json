@@ -1,0 +1,17 @@
+{
+    "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
+    "extends": ["@stegripe/biomejs-config"],
+    "linter": {
+        "rules": {
+            "style": {
+                "noNonNullAssertion": "off",
+                "useExplicitLengthCheck": "off",
+                "useNamingConvention": "off",
+                "useFilenamingConvention": "off"
+            },
+            "nursery": {
+                "useExplicitType": "off"
+            }
+        }
+    }
+}

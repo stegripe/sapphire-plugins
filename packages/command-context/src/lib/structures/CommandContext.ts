@@ -1,19 +1,21 @@
-/* eslint-disable typescript/explicit-function-return-type, typescript/explicit-module-boundary-types */
 import { cast } from "@sapphire/utilities";
-import type { Interaction, MessagePayloadOption } from "discord.js";
 import {
     ChatInputCommandInteraction,
     CommandInteraction,
+    type Interaction,
     Message,
     MessageContextMenuCommandInteraction,
     MessagePayload,
-    UserContextMenuCommandInteraction
+    type MessagePayloadOption,
+    type PartialGroupDMChannel,
+    type TextBasedChannel,
+    UserContextMenuCommandInteraction,
 } from "discord.js";
-import type { ChatInputCommandInteractionContext } from "./ChatInputCommandInteractionContext.js";
-import type { CommandInteractionContext } from "./CommandInteractionContext.js";
-import type { MessageContext } from "./MessageContext.js";
-import type { MessageContextMenuCommandInteractionContext } from "./MessageContextMenuCommandInteractionContext.js";
-import type { UserContextMenuCommandInteractionContext } from "./UserContextMenuCommandInteractionContext.js";
+import { type ChatInputCommandInteractionContext } from "./ChatInputCommandInteractionContext.js";
+import { type CommandInteractionContext } from "./CommandInteractionContext.js";
+import { type MessageContext } from "./MessageContext.js";
+import { type MessageContextMenuCommandInteractionContext } from "./MessageContextMenuCommandInteractionContext.js";
+import { type UserContextMenuCommandInteractionContext } from "./UserContextMenuCommandInteractionContext.js";
 
 export class CommandContext {
     public constructor(public readonly context: CommandInteraction | Message) {}
@@ -102,10 +104,10 @@ export class CommandContext {
         return this.context instanceof MessageContextMenuCommandInteraction;
     }
 
-    public async send(options: MessagePayloadOption | string) {
+    public send(options: MessagePayloadOption | string) {
         const messagePayload = new MessagePayload(
             cast<Interaction | Message>(this.context),
-            typeof options === "string" ? { content: options } : options
+            typeof options === "string" ? { content: options } : options,
         );
 
         if (this.isCommandInteraction()) {
@@ -120,10 +122,12 @@ export class CommandContext {
             return cast<Promise<Message>>(this.context.reply(messagePayload));
         }
 
-        return this.channel!.send(messagePayload);
+        return cast<Exclude<TextBasedChannel, PartialGroupDMChannel>>(this.channel)?.send(
+            messagePayload,
+        );
     }
 
-    public async reply(options: MessagePayloadOption | string) {
+    public reply(options: MessagePayloadOption | string) {
         if (this.isCommandInteraction()) {
             return this.send(options);
         }
@@ -135,16 +139,16 @@ export class CommandContext {
                       content: options,
                       reply: {
                           messageReference: this.id,
-                          failIfNotExists: false
-                      }
+                          failIfNotExists: false,
+                      },
                   }
                 : {
                       ...options,
                       reply: {
                           messageReference: this.id,
-                          failIfNotExists: false
-                      }
-                  }
+                          failIfNotExists: false,
+                      },
+                  },
         );
         return cast<Message>(this.context).reply(messagePayload);
     }

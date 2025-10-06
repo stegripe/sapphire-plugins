@@ -8,7 +8,6 @@
     ],
     "compilerOptions": {
         "noEmit": true,
-        "incremental": false,
-        "skipLibCheck": true
+        "incremental": false
     }
 }
