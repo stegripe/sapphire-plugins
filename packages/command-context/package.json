@@ -50,7 +50,7 @@
         "@biomejs/biome": "^2.2.5",
         "@sapphire/framework": "^5.3.7",
         "@sapphire/utilities": "^3.18.2",
-        "discord.js": "^14.22.1",
+        "discord.js": "^14.23.2",
         "typescript": "^5.9.3"
     }
 }
