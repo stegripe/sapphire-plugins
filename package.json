@@ -28,18 +28,18 @@
         "npm": ">=10"
     },
     "devDependencies": {
-        "@biomejs/biome": "^2.2.5",
+        "@biomejs/biome": "^2.2.6",
         "@changesets/cli": "^2.29.7",
         "@sapphire/ts-config": "^5.0.1",
         "@stegripe/biomejs-config": "^1.1.0",
-        "@types/node": "^22.18.8",
+        "@types/node": "^22.18.11",
         "rimraf": "^6.0.1",
-        "tsdown": "^0.15.6",
+        "tsdown": "^0.15.7",
         "turbo": "^2.5.8",
-        "typedoc": "^0.26.11",
+        "typedoc": "^0.28.14",
         "typedoc-material-theme": "^1.4.0",
         "typedoc-plugin-djs-links": "^2.2.1",
-        "typedoc-plugin-mdn-links": "^5.0.9",
+        "typedoc-plugin-mdn-links": "^5.0.10",
         "typescript": "^5.9.3"
     }
 }
