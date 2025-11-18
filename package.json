@@ -32,7 +32,7 @@
         "@changesets/cli": "^2.29.7",
         "@sapphire/ts-config": "^5.0.1",
         "@stegripe/biomejs-config": "^1.1.0",
-        "@types/node": "^22.18.8",
+        "@types/node": "^24.10.1",
         "rimraf": "^6.0.1",
         "tsdown": "^0.15.6",
         "turbo": "^2.5.8",
