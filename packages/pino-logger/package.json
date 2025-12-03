@@ -51,7 +51,7 @@
         "@sapphire/framework": "^5.3.7",
         "@sapphire/utilities": "^3.18.2",
         "discord.js": "^14.22.1",
-        "pino": "^9.13.1",
+        "pino": "^10.1.0",
         "typescript": "^5.9.3"
     }
 }
