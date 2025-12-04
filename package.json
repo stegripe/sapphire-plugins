@@ -28,18 +28,18 @@
         "npm": ">=10"
     },
     "devDependencies": {
-        "@biomejs/biome": "^2.2.5",
-        "@changesets/cli": "^2.29.7",
-        "@sapphire/ts-config": "^5.0.1",
+        "@biomejs/biome": "^2.3.8",
+        "@changesets/cli": "^2.29.8",
+        "@sapphire/ts-config": "^5.0.3",
         "@stegripe/biomejs-config": "^1.1.0",
-        "@types/node": "^22.18.8",
-        "rimraf": "^6.0.1",
-        "tsdown": "^0.15.6",
-        "turbo": "^2.5.8",
-        "typedoc": "^0.26.11",
-        "typedoc-material-theme": "^1.4.0",
+        "@types/node": "^22.19.1",
+        "rimraf": "^6.1.2",
+        "tsdown": "^0.17.0",
+        "turbo": "^2.6.3",
+        "typedoc": "^0.28.15",
+        "typedoc-material-theme": "^1.4.1",
         "typedoc-plugin-djs-links": "^2.2.1",
-        "typedoc-plugin-mdn-links": "^5.0.9",
+        "typedoc-plugin-mdn-links": "^5.0.10",
         "typescript": "^5.9.3"
     }
 }
