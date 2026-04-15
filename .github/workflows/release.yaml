@@ -1,4 +1,4 @@
-name: Publish to NPM and GitHub registry
+name: Release
 
 on:
   push:
@@ -36,8 +36,8 @@ jobs:
         uses: changesets/action@v1
         with:
           publish: pnpm release
-          commit: 'chore(release): publish'
-          title: 'chore(release): update versions'
+          commit: "chore(release): publish"
+          title: "chore(release): update versions"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
