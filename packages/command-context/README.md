@@ -6,7 +6,7 @@
 
 **Plugin for [**`@sapphire/framework`**](https://github.com/sapphire/framework) used to handle Message & Interaction Command in a single context.**
 
-[![GitHub](https://img.shields.io/github/license/stegripe/sapphire-plugins)](https://github.com/stegripe/sapphire-plugins/blob/main/LICENSE.md)
+<a href="https://creativecommons.org/licenses/by-nc-nd/4.0/"><img src="https://img.shields.io/badge/license-CC%20BY--NC--ND%204.0-orange.svg" alt="License: CC BY-NC-ND 4.0"></a>
 <a href="https://www.npmjs.com/package/@stegripe/command-context">
 <img src="https://img.shields.io/npm/v/@stegripe/command-context?maxAge=3600" alt="npm version" ></a>
 <img src="https://img.shields.io/npm/dt/@stegripe/command-context?maxAge=3600" alt="npm downloads">

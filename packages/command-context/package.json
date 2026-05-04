@@ -2,7 +2,7 @@
     "name": "@stegripe/command-context",
     "version": "1.2.0",
     "description": "Handle Message and Interaction Command in one place.",
-    "license": "AGPL-3.0",
+    "license": "CC-BY-NC-ND-4.0",
     "author": "Stegripe Development <support@stegripe.org>",
     "repository": {
         "type": "git",
