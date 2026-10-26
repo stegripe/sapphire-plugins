@@ -43,10 +43,5 @@
         "typedoc-plugin-djs-links": "^2.2.1",
         "typedoc-plugin-mdn-links": "^5.1.1",
         "typescript": "~6.0.3"
-    },
-    "pnpm": {
-        "overrides": {
-            "@discordjs/builders": "1.14.1"
-        }
     }
 }

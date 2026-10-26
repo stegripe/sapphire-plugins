@@ -1,2 +1,5 @@
 packages:
     - "packages/*"
+
+overrides:
+  '@discordjs/builders': 1.14.1
