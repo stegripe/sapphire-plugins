@@ -20,7 +20,7 @@
         "lint": "turbo run lint --filter=./packages/* --dangerously-disable-package-manager-check",
         "lint:fix": "turbo run lint:fix --filter=./packages/* --dangerously-disable-package-manager-check",
         "typecheck": "turbo run typecheck --filter=./packages/* --dangerously-disable-package-manager-check",
-        "release": "pnpm build && changeset version && changeset publish"
+        "release": "pnpm build && changeset publish"
     },
     "workspaces": [
         "packages/*"
