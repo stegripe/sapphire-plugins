@@ -144,7 +144,7 @@ export class MessageContext extends CommandContext {
     }
 
     public equals(message: Message, rawData: unknown) {
-        return this.context.equals(message, rawData);
+        return this.context.equals(message, rawData as Parameters<typeof this.context.equals>[1]);
     }
 
     public fetchReference() {
