@@ -32,7 +32,7 @@
     "devDependencies": {
         "@biomejs/biome": "^2.6.3",
         "@changesets/cli": "^3.0.3",
-        "@sapphire/ts-config": "^5.0.3",
+        "@sapphire/ts-config": "^6.0.0",
         "@stegripe/biomejs-config": "^1.1.0",
         "@types/node": "^24.19.2",
         "rimraf": "^6.1.3",
