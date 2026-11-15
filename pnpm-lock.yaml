@@ -18,8 +18,8 @@ importers:
         specifier: ^3.0.3
         version: 3.0.3
       '@sapphire/ts-config':
-        specifier: ^5.0.3
-        version: 5.0.3
+        specifier: ^6.0.0
+        version: 6.0.0
       '@stegripe/biomejs-config':
         specifier: ^1.1.0
         version: 1.1.0
@@ -547,9 +547,9 @@ packages:
     resolution: {integrity: sha512-IVI48D2yAz411bSttXyTkBH0p2vhrXoqWLn5loDDSAAEUGkM1r5KNCX2027ifQ8svdoMkUfIGjFueR+satLeWw==}
     engines: {node: '>=v14.0.0', npm: '>=7.0.0'}
 
-  '@sapphire/ts-config@5.0.3':
-    resolution: {integrity: sha512-bFyGYHFT3TpOf5Sg2P+zY2ad0t5IA2epc5HtewlghhL7MYvbZvxtKsdaNaMwAdNObBx7hpiQm5OcOhyzEwQvbQ==}
-    engines: {node: '>=v16.0.0', npm: '>=8.0.0'}
+  '@sapphire/ts-config@6.0.0':
+    resolution: {integrity: sha512-iV0Pdg8yfuwyky8PFDsOGzY5hgMh1Stbpb4rrKj9M1JEOnBq5N2WFImZWWiBBS08K1nkvXAXqFf+EYqxCeSjgw==}
+    engines: {node: '>=v24.0.0', npm: '>=11.0.0'}
 
   '@sapphire/utilities@3.18.3':
     resolution: {integrity: sha512-Y57/O3lgdf13ezQ4C+KFZKINoQR+OOcQP200sG5imlwcHM7frqez6BwWHujyguodaZjRn7R8W4fMLp4ipDsBPw==}
@@ -1032,11 +1032,6 @@ packages:
     hasBin: true
     peerDependencies:
       typescript: 5.0.x || 5.1.x || 5.2.x || 5.3.x || 5.4.x || 5.5.x || 5.6.x || 5.7.x || 5.8.x || 5.9.x || 6.0.x
-
-  typescript@5.4.5:
-    resolution: {integrity: sha512-vcI4UpRgg81oIRUFwR0WSIHKt11nJ7SAVlYNIu+QpqeyXP+gpQJy/Z4+F0aGxSE4MqwjyXvW/TzgkLAx2AGHwQ==}
-    engines: {node: '>=14.17'}
-    hasBin: true
 
   typescript@6.0.3:
     resolution: {integrity: sha512-y2TvuxSZPDyQakkFRPZHKFm+KKVqIisdg9/CZwm9ftvKXLP8NRWj38/ODjNbr43SsoXqNuAisEf1GdCxqWcdBw==}
@@ -1521,10 +1516,10 @@ snapshots:
     dependencies:
       tslib: 2.8.1
 
-  '@sapphire/ts-config@5.0.3':
+  '@sapphire/ts-config@6.0.0':
     dependencies:
-      tslib: 2.8.1
-      typescript: 5.4.5
+      '@types/node': 24.19.2
+      typescript: 6.0.3
 
   '@sapphire/utilities@3.18.3': {}
 
@@ -1952,8 +1947,6 @@ snapshots:
       minimatch: 10.2.6
       typescript: 6.0.3
       yaml: 2.9.1
-
-  typescript@5.4.5: {}
 
   typescript@6.0.3: {}
 
