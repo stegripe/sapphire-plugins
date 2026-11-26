@@ -1,8 +1,11 @@
 (() => {
     const storageKey = "stegripe:docs.stegripe.org:sidebar-scroll";
     const selector = ".col-sidebar, .site-menu, .page-menu";
-    let lastUser = null;
-    let userScrolling = false;
+    const restoreWindowMs = 600;
+    let saved = null;
+    let restoring = true;
+    let observer = null;
+    const timers = [];
 
     const scrollerId = (el) =>
         ["col-sidebar", "site-menu", "page-menu"].find((name) => el.classList.contains(name)) ?? "sidebar";
@@ -23,23 +26,29 @@
     };
 
     const save = () => {
-        const data = { ...(lastUser || {}) };
+        const data = { ...(saved || {}) };
         for (const el of scrollers()) {
             if (el.scrollHeight > el.clientHeight + 1) {
                 data[scrollerId(el)] = el.scrollTop;
             }
         }
-        lastUser = data;
-        sessionStorage.setItem(storageKey, JSON.stringify(data));
+        saved = data;
+        try {
+            sessionStorage.setItem(storageKey, JSON.stringify(data));
+        } catch {
+        }
     };
 
     const apply = () => {
-        const saved = lastUser || readSaved();
+        if (!restoring) {
+            return;
+        }
+        const data = saved;
         for (const el of scrollers()) {
             const id = scrollerId(el);
-            if (saved && typeof saved[id] === "number") {
-                el.scrollTop = saved[id];
-            } else if (!saved) {
+            if (data && typeof data[id] === "number") {
+                el.scrollTop = data[id];
+            } else if (!data) {
                 el.scrollTop = 0;
             }
         }
@@ -54,18 +63,58 @@
         return text !== "" && text !== "Loading...";
     };
 
-    lastUser = readSaved();
+    const stopRestore = () => {
+        if (!restoring) {
+            return;
+        }
+        restoring = false;
+        for (const id of timers) {
+            clearTimeout(id);
+        }
+        timers.length = 0;
+        if (observer) {
+            observer.disconnect();
+            observer = null;
+        }
+    };
+
+    const isSidebarEvent = (event) => {
+        const target = event.target;
+        if (target instanceof Element && target.closest(selector)) {
+            return true;
+        }
+        if (event.type === "keydown") {
+            const active = document.activeElement;
+            return scrollers().some((el) => el === active || el.contains(active));
+        }
+        return false;
+    };
+
+    saved = readSaved();
     apply();
-    for (const ms of [0, 50, 100, 300, 600]) {
-        setTimeout(apply, ms);
+
+    for (const ms of [0, 50, 100, 300, restoreWindowMs]) {
+        timers.push(
+            setTimeout(() => {
+                if (!restoring) {
+                    return;
+                }
+                apply();
+                if (ms === restoreWindowMs) {
+                    stopRestore();
+                }
+            }, ms),
+        );
     }
+
     const nav = document.getElementById("tsd-nav-container");
     if (nav) {
-        new MutationObserver(() => {
-            if (navReady()) {
+        observer = new MutationObserver(() => {
+            if (restoring && navReady()) {
                 apply();
             }
-        }).observe(nav, { childList: true, subtree: true });
+        });
+        observer.observe(nav, { childList: true, subtree: true });
         if (navReady()) {
             apply();
         }
@@ -78,28 +127,22 @@
             if (!(target instanceof Element) || !target.matches(selector)) {
                 return;
             }
-            if (userScrolling) {
-                save();
-            } else {
-                apply();
+            if (restoring) {
+                return;
             }
+            save();
         },
         true,
     );
 
-    const onUserScroll = (event) => {
-        const target = event.target;
-        if (!(target instanceof Element) || !target.closest(selector)) {
+    const onUserInput = (event) => {
+        if (!isSidebarEvent(event)) {
             return;
         }
-        userScrolling = true;
-        requestAnimationFrame(() => {
-            save();
-            userScrolling = false;
-        });
+        stopRestore();
     };
 
-    for (const type of ["wheel", "touchmove"]) {
-        document.addEventListener(type, onUserScroll, true);
+    for (const type of ["keydown", "pointerdown", "wheel", "touchstart", "touchmove"]) {
+        document.addEventListener(type, onUserInput, true);
     }
 })();
