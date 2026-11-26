@@ -25,10 +25,12 @@ html.dark {
     --stg-scrollbar-thumb-hover: #1c79bb;
 }
 
-html,
-* {
-    scrollbar-width: thin !important;
-    scrollbar-color: var(--stg-scrollbar-thumb) transparent !important;
+@supports not selector(::-webkit-scrollbar) {
+    html,
+    * {
+        scrollbar-width: thin !important;
+        scrollbar-color: var(--stg-scrollbar-thumb) transparent !important;
+    }
 }
 
 *::-webkit-scrollbar {
@@ -48,4 +50,10 @@ html,
 
 *::-webkit-scrollbar-thumb:hover {
     background-color: var(--stg-scrollbar-thumb-hover) !important;
+}
+
+*::-webkit-scrollbar-button {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
 }
