@@ -13,5 +13,6 @@
         "entryPoints": ["src/index.ts"]
     },
     "plugin": ["typedoc-plugin-djs-links", "typedoc-plugin-mdn-links", "typedoc-material-theme"],
-    "customJs": "./typedoc/sidebar-scroll.js"
+    "customJs": "./typedoc/sidebar-scroll.js",
+    "customCss": "./typedoc/stegripe.css"
 }
